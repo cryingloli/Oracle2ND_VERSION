@@ -188,7 +188,7 @@ main()
 	else
 	{
 		printf("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-		_Raises_SEH_exception_;
+		//_Raises_SEH_exception_;
 	}
 
 	printf("Вы прожили %d ахахахаха с этим я разбираться точно не буду я итак сейчас вскроюсь \n\n", daycount);
