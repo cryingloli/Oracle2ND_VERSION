@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<locale.h>
 
-int visokos(year)
+int visokos(int year)
 {
 	if (year % 400 != 0)
 	{
@@ -39,7 +39,7 @@ main()
 	scanf_s("%d", &year);
 	printf("Введите Месяц рождения \n");
 	scanf_s("%d", &mon);
-	printf("Введите День рождения \n");
+	printf("Введит	е День рождения \n");
 	scanf_s("%d", &day);
 	printf("Введите Год \n");
 	scanf_s("%d", &nowyear);
@@ -165,6 +165,13 @@ main()
 		}
 	}
 
+	year = year_s;
+	mon = mon_s;
+	day = day_s;
+	nowyear = nowyear_s;
+	nowmon = nowmon_s;
+	nowday = nowday_s;
+
 	daycount += k;
 	k = 0;
 	daycount += day;
@@ -187,8 +194,35 @@ main()
 	}
 	else
 	{
-		printf("AAAAAAAAAAAAAAAAAAAAAAAAAA");
-		//_Raises_SEH_exception_;
+		daycount = 0;
+		if (mon == nowmon)
+		{
+			daycount = nowday-day;
+		}
+		else
+		{
+			while (mon != nowmon-1)
+			{
+				if ((mon == 1) || (mon == 3) || (mon == 5) || (mon == 7) || (mon == 8) || (mon == 10) || (mon == 11))
+				{
+					daycount += 31;
+				}
+				else if ((mon == 2) && visokos(year))
+				{
+					daycount += 29;
+				}
+				else if ((mon == 2) && visokos(year))
+				{
+					daycount += 28;
+				}
+				else
+				{
+					daycount += 30;
+				}
+				mon++;
+			}
+			daycount += nowday;
+		}
 	}
 
 	printf("Вы прожили %d ахахахаха с этим я разбираться точно не буду я итак сейчас вскроюсь \n\n", daycount);
